@@ -4,6 +4,7 @@ export interface AuthState {
   loading: boolean;
   token: string;
   error: string | null;
+  message: string
 }
 
 export interface SignupRequest {
@@ -30,7 +31,7 @@ export interface LoginFailed {
 }
 
 export interface SignupSuccessPayload {
-  token: string;
+  message: string;
 }
 
 export interface LoginSuccessPayload {

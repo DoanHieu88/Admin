@@ -5,6 +5,7 @@ const initState: AuthState = {
   loading: false,
   token: "",
   error: null,
+  message: ""
 };
 
 const reducers = (state:AuthState = initState, action: AuthAction ) => {
@@ -27,20 +28,20 @@ const reducers = (state:AuthState = initState, action: AuthAction ) => {
       return {
         ...state,
         loading: false,
-        token: action.payload,
+        token: action.payload.token,
         error: null,
       };
     case type.SIGNUP_SUCCESS:
       return {
         ...state,
         loading: false,
-        token: action.payload,
+        message: action.payload,
         error: null,
       };
 
     default:
-       state
-      break;
+     return   state
+      
   }
 };
 

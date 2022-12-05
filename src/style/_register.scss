@@ -1,0 +1,14 @@
+@import 'variable';
+@import 'mixin';
+
+.register-admin_message__success{
+    background-color: $backgr-success;
+    color:$color-success;
+    @include alert-noti();
+}  
+
+.register-admin_message__error{
+    background-color: $backgr-error;
+    color:$color-error;
+    @include alert-noti();
+}

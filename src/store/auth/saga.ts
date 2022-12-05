@@ -30,7 +30,7 @@ function* loginAdminSaga(action: any) {
 
 function* signupAdminSaga(action: any) {
   try {
-    const respone: { token: string } = yield call(signupAdmin, {
+    const respone: { message: string } = yield call(signupAdmin, {
       firstName: action.payload.firstName,
       lastName: action.payload.lastName,
       email: action.payload.email,
@@ -40,7 +40,9 @@ function* signupAdminSaga(action: any) {
       password: action.payload.password,
       comfirmPassword: action.payload.comfirmPassword,
     });
-    yield put(signupSuccess({...respone}))
+    yield put(signupSuccess({
+      ...respone,
+    }))
   } catch (error:any) {
     yield put(signupFailed({error: error.message}))
   }
