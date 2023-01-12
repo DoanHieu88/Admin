@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Avatar,
   Button,
@@ -12,9 +12,12 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { LoginPayload } from "../../store/auth/type";
 import { useDispatch } from "react-redux";
 import { loginRequest } from "../../store/auth/action";
+import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
   const [dataSubmit, setDataSubmit] = useState<LoginPayload>({
     email: "",
     password: "",
@@ -29,8 +32,16 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    dispatch(loginRequest({...dataSubmit}))
+    dispatch(loginRequest({ ...dataSubmit }));
   };
+
+  useEffect(()=>{
+    const token = localStorage.getItem("token")
+    if(token){
+      navigate('/')
+    }
+  },[])
+
   return (
     <React.Fragment>
       <Container component={"main"} maxWidth={"xs"} sx={{ mt: 10 }}>

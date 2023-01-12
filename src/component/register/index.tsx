@@ -13,9 +13,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Link } from "react-router-dom";
 import { SignupPayload } from "../../store/auth/type";
 import { getUserByEmail, handleRegister } from "../../handleApi/register";
+import { useNavigate } from 'react-router-dom';
 const theme = createTheme();
 
 const Register :React.FC= () => {
+  let navigate = useNavigate();
   const [isSessageSuccess, setIsMessageSuccess] = useState<boolean>(false);
   const [messageErr, setMessageErr] = useState<string>("");
   const [dataSubmit, setDataSubmit] = useState<SignupPayload>({
@@ -68,6 +70,7 @@ const Register :React.FC= () => {
             setTimeout(() => {
               setIsMessageSuccess(false);
             }, 3000);
+            navigate('/login')
           }
         })
         .catch((err) => {

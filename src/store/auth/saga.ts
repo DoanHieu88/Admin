@@ -22,6 +22,9 @@ function* loginAdminSaga(action: any) {
       password: action.payload.password,
     });
 
+    if(respone) {
+      localStorage.setItem('token',respone.token)
+    }
     yield put(loginSuccess({ ...respone }));
   } catch (error: any) {
     yield put(loginFailed({ error: error.message }));
