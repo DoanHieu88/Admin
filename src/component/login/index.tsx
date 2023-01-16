@@ -3,7 +3,6 @@ import {
   Avatar,
   Button,
   Container,
-  CssBaseline,
   Grid,
   TextField,
 } from "@mui/material";
@@ -12,12 +11,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { LoginPayload } from "../../store/auth/type";
 import { useDispatch } from "react-redux";
 import { loginRequest } from "../../store/auth/action";
-import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [dataSubmit, setDataSubmit] = useState<LoginPayload>({
     email: "",
     password: "",

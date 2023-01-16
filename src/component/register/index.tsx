@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import { createTheme, ThemeProvider } from "@mui/system";
 import {
   Avatar,
   Button,
@@ -14,7 +13,6 @@ import { Link } from "react-router-dom";
 import { SignupPayload } from "../../store/auth/type";
 import { getUserByEmail, handleRegister } from "../../handleApi/register";
 import { useNavigate } from 'react-router-dom';
-const theme = createTheme();
 
 const Register :React.FC= () => {
   let navigate = useNavigate();

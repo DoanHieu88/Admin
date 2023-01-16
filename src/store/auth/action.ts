@@ -1,5 +1,5 @@
 import * as type from "../auth/actionType";
-import { LoginFailedPayload, LoginPayload, LoginSuccessPayload, SignupFailedPayload, SignupPayload, SignupRequest, SignupSuccessPayload } from "./type";
+import { LoginFailedPayload, LoginPayload, LoginSuccessPayload, SignupFailedPayload, SignupPayload, SignupSuccessPayload } from "./type";
 
 export const signupRequest =(payload: SignupPayload )=>({
     type:type.SIGNUP_REQUEST,
